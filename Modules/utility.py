@@ -12,3 +12,11 @@ def divide(num1, num2):
         return 'Please input correct value'
     except ZeroDivisionError:
         return 'Second number can not be zero!'
+
+
+class Student:
+    pass
+
+
+if __name__ == '__main__':
+    print(__name__)
