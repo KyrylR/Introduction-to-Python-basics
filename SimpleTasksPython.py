@@ -19,6 +19,18 @@
 # should be printed in a comma-separated sequence on a single line.Suppose the
 # following input is supplied to the program: 8 Then, the output should be:40320
 #
-# from functools import reduce
-#
-# print(reduce(lambda acc, item: acc * item, range(1, 9), 1))
+from functools import reduce
+
+while True:
+    try:
+        num = int(input('Input number: '))
+        print(reduce(lambda acc, item: acc * item, range(1, num + 1)))
+    except ValueError:
+        print('Please input number')
+    except TypeError:
+        print('Please enter non negative number')
+    except Exception as err:
+        print(err, type(err))
+    else:
+        print('Thanks')
+        break
