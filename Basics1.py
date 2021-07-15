@@ -45,7 +45,7 @@
 # #   * DRY -> Don't repeat yourself
 # #   * Make code reusable
 # # - Test your assumptions
-#
+# # - Pros and cons of libraries
 #
 #
 # # Operator precedence () -> ** -> *, / -> +, -

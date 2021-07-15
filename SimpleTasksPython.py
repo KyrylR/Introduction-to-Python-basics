@@ -62,7 +62,7 @@ print(sys.executable)
 
 # Task 4: Write a program which accepts a sequence of comma-separated numbers from
 # console and generate a list and a tuple which contains every number.
-
-ls = input('Write nums: ').replace(' ', '').split(',')
-print(ls)
-print(tuple(ls))
+#
+# ls = input('Write nums: ').replace(' ', '').split(',')
+# print(ls)
+# print(tuple(ls))
