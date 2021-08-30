@@ -1,5 +1,8 @@
-def simple_func(num):
+def simple_func(num=0):
     try:
-        return int(num) + 5
+        if num:
+            return int(num) + 5
+        else:
+            return 'Please enter a number!'
     except ValueError as err:
         return err

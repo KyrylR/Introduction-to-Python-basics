@@ -8,10 +8,15 @@ class TestMain(unittest.TestCase):
         result = main.simple_func(test_param)
         self.assertEqual(result, 15)
 
-    def test_simple_func_checkStringParam_True(self):
+    def test_simple_func_checkString_True(self):
         test_param = 'aas'
         result = main.simple_func(test_param)
         self.assertIsInstance(result, ValueError)
+
+    def test_simple_func_checkNone_True(self):
+        test_param = None
+        result = main.simple_func(test_param)
+        self.assertEqual(result, 'Please enter a number!')
 
 
 if __name__ == '__main__':
