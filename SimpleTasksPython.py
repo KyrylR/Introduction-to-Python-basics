@@ -1,6 +1,8 @@
 import sys
+
 print(sys.version)
 print(sys.executable)
+
 
 # Write a program which will find all such numbers which are divisible by 7
 # but are not a multiple of 5, between 2000 and 3200 (both included).The numbers
@@ -66,3 +68,26 @@ print(sys.executable)
 # ls = input('Write nums: ').replace(' ', '').split(',')
 # print(ls)
 # print(tuple(ls))
+
+# Task5:
+#
+# Define a class which has at least two methods:
+#     getString: to get a string from console input
+#     printString: to print the string in upper case.
+# Also please include simple test function to test the class methods.
+
+class Sample(object):
+    def __init__(self, string):
+        self.string = string
+
+    def getString(self):
+        self.string = input('Enter String: ')
+
+    def printString(self):
+        print(str(self.string).upper())
+
+
+sample = Sample('Hello')
+sample.printString()
+sample.getString()
+sample.printString()
