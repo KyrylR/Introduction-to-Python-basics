@@ -3,17 +3,10 @@ import main
 
 
 class TestMain(unittest.TestCase):
-    def setUp(self) -> None:
-        print('About test func!')
-
     def test_simple_func_checkDirectWork_True(self):
-        '''
-        Hi!
-        :return: Nothing!
-        '''
-        test_param = 10
+        test_param = 11
         result = main.simple_func(test_param)
-        self.assertEqual(result, 15)
+        self.assertEqual(result, 16)
 
     def test_simple_func_checkString_True(self):
         test_param = 'aas'
@@ -24,9 +17,6 @@ class TestMain(unittest.TestCase):
         test_param = None
         result = main.simple_func(test_param)
         self.assertEqual(result, 'Please enter a number!')
-
-    def tearDown(self) -> None:
-        print('cleaning up!')
 
 
 if __name__ == '__main__':

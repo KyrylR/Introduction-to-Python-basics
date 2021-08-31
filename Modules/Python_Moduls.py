@@ -20,50 +20,57 @@
 # shuffle(my_list)
 # print(my_list)  # shuffle our list
 
-# # Random game where you need to guess a number
-# import sys
-# from random import randint
-# from time import time
-#
-#
-# def performance(func):
-#     def wrapper(*args, **kwargs):
-#         time1 = time()
-#         result = func(*args, **kwargs)
-#         time2 = time()
-#         print(f'Your game took: {time2 - time1}')
-#
-#     return wrapper
-#
-#
-# first_num = sys.argv[1]  # 0 index for name of file
-# second_num = sys.argv[2]
-#
-#
-# @performance
-# def randomgame():
-#     try:
-#         print(f'Guess a number between {first_num} and {second_num}')
-#         random_num = randint(int(first_num), int(second_num))
-#         while True:
-#             try:
-#                 guess_num = int(input('Guess a number: '))
-#                 if guess_num == random_num:
-#                     print('You are genius!')
-#                     break
-#                 elif guess_num > random_num:
-#                     print('It is a little bit higher')
-#                 else:
-#                     print('It is lower')
-#             except ValueError:
-#                 print('Please Enter a number next time')
-#     except ValueError:
-#         print('Please Enter a number next time')
-#     else:
-#         print('Thanks for the game ;) See ya)))')
-#
-#
-# randomgame()
+# Random game where you need to guess a number
+import sys
+from random import randint
+from time import time
+
+
+def performance(func):
+    def wrapper(*args, **kwargs):
+        time1 = time()
+        result = func(*args, **kwargs)
+        time2 = time()
+        print(f'Your game took: {time2 - time1}')
+
+    return wrapper
+
+
+first_num = 0  # 0 index for name of file
+second_num = 10
+
+
+def run_guess(guess_num, random_num):
+    if guess_num == random_num:
+        print('You are genius!')
+        return True
+    elif guess_num > random_num:
+        print('It is a little bit higher')
+        return False
+    else:
+        print('It is lower')
+        return False
+
+
+def randomgame():
+    try:
+        print(f'Guess a number between {first_num} and {second_num}')
+        random_num = randint(int(first_num), int(second_num))
+        while True:
+            try:
+                guess_num = int(input('Guess a number: '))
+                if run_guess(guess_num, random_num):
+                    break
+            except ValueError:
+                print('Please Enter a number next time')
+    except ValueError:
+        print('Please Enter a number next time')
+    else:
+        print('Thanks for the game ;) See ya)))')
+
+
+if __name__ == "__main__":
+    randomgame()
 
 # Useful modules
 from collections import Counter, defaultdict, OrderedDict
