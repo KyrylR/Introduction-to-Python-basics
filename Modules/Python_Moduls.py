@@ -25,7 +25,6 @@ import sys
 from random import randint
 from time import time
 
-
 def performance(func):
     def wrapper(*args, **kwargs):
         time1 = time()

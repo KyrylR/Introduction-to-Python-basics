@@ -46,7 +46,7 @@
 # #   * Make code reusable
 # # - Test your assumptions
 # # - Pros and cons of libraries
-#
+# # - Pick the RIGHT Library
 #
 # # Operator precedence () -> ** -> *, / -> +, -
 #

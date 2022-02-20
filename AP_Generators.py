@@ -21,27 +21,27 @@
 # # if obj has a dander method __iter__ it'll be an iterable obj
 # # also generator is a subset of an iterable
 
-# # Create our own generator:
-# def generator_function(num):
-#     for it in range(num):
-#         # yield says, just pause the function, just yield i
-#         # give i and when you tell me to keep going again, then i'll keep going
-#         yield it*2
-#
-#
-# try:
-#     g = generator_function(3)
-#     print(next(g))  # 0
-#     print(next(g))  # 2
-#     print(next(g))  # 4
-#     print(next(g))  # 6
-# except StopIteration as err:
-#     print('StopIteration Error')
+# Create our own generator:
+def generator_function(num):
+    for it in range(num):
+        # yield says, just pause the function, just yield i
+        # give i and when you tell me to keep going again, then i'll keep going
+        yield it*2
 
-# for i in generator_function(10):
-#     print(f'{i}')
-#     if i > 5:
-#         break
+
+try:
+    g = generator_function(3)
+    print(next(g))  # 0
+    print(next(g))  # 2
+    print(next(g))  # 4
+    print(next(g))  # 6
+except StopIteration as err:
+    print('StopIteration Error')
+
+for i in generator_function(10):
+    print(f'{i}')
+    if i > 5:
+        break
 
 
 # Performance decorator
@@ -132,56 +132,57 @@ def performance(func):
 # print('Build in type')
 # build_in_types()  # It took 1.8361592292785645 s
 
-# # Create our own fibonacci range
-# class MyFibonacciGen(object):
-#     current = 0
-#     next = 1
-#     state = 0
-#
-#     def __init__(self, first, last):
-#         self.first = first
-#         self.last = last
-#
-#     def __iter__(self):
-#         return self
-#
-#     def __next__(self):
-#         if MyFibonacciGen.state <= self.last:
-#             MyFibonacciGen.state += 1
-#             result = MyFibonacciGen.current
-#             temp = MyFibonacciGen.next
-#             MyFibonacciGen.next += MyFibonacciGen.current
-#             MyFibonacciGen.current = temp
-#             return result
-#         raise StopIteration
-#
-#
-# @performance
-# def own_types():
-#     gen = MyFibonacciGen(0, 10 ** 3)
-#     for i in gen:
-#         pass
-#
-#
-# def fib(number):
-#     a = 0
-#     b = 1
-#     for i in range(number):
-#         yield a
-#         temp = a
-#         a = b
-#         b = temp + b
-#
-#
-# @performance
-# def Andr_types():
-#     for x in fib(10 ** 3):
-#         pass
-#
-#
+# Create our own fibonacci range
+class MyFibonacciGen(object):
+    current = 0
+    next = 1
+    state = 0
+
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if MyFibonacciGen.state <= self.last:
+            MyFibonacciGen.state += 1
+            result = MyFibonacciGen.current
+            temp = MyFibonacciGen.next
+            MyFibonacciGen.next += MyFibonacciGen.current
+            MyFibonacciGen.current = temp
+            return result
+        raise StopIteration
+
+
+@performance
+def own_types():
+    gen = MyFibonacciGen(0, 10 ** 3)
+    for i in gen:
+        pass
+
+
+def fib(number):
+    a = 0
+    b = 1
+    for i in range(number):
+        yield a
+        temp = a
+        a = b
+        b = temp + b
+
+
+@performance
+def Andr_types():
+    for x in fib(30):
+        print(x)
+        pass
+
+
 # print('Own type')
 # # It took 718.6488845348358 s for 10^7
 # own_types()  # It took 7.056485652923584 s for 10^6
-# print('Andr type')
-# # It took 692.5728919506073 s for 10^7
-# Andr_types()  # 6.633790731430054 s for 10^6
+print('Andr type')
+# It took 692.5728919506073 s for 10^7
+Andr_types()  # 6.633790731430054 s for 10^6
